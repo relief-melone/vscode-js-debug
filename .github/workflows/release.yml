@@ -22,7 +22,7 @@ jobs:
     
     - name: install yq
       env:
-        VERSION: "4.41.1"
+        VERSION: "v4.41.1"
         BINARY: yq_linux_amd64
       run: |
         sudo wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY} -O /usr/bin/yq &&\

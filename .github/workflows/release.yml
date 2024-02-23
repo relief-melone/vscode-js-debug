@@ -25,8 +25,8 @@ jobs:
         VERSION: "4.41.1"
         BINARY: yq_linux_amd64
       run: |
-        wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY} -O /usr/bin/yq &&\
-        chmod +x /usr/bin/yq
+        sudo wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY} -O /usr/bin/yq &&\
+        sudo chmod +x /usr/bin/yq
         # uses: chrisdickinson/setup-yq@latest
 
     - name: generate version tag

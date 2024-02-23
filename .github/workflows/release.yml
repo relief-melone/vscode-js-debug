@@ -44,4 +44,3 @@ jobs:
         draft: false
         prerelease: false
 
-    - name

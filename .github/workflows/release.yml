@@ -31,7 +31,7 @@ jobs:
 
     - name: generate version tag
       id: generate_tag
-      run: echo "RELEASE_TAG=$(cat package.json | yq -p json .version)" >> "$GITHUB_OUPUT"
+      run: echo "RELEASE_TAG=$(cat package.json | yq -p json .version)" >> "$GITHUB_OUTPUT"
 
     - name: create release
       id: create_release

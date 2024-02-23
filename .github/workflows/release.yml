@@ -1,0 +1,39 @@
+name: Build nodejs package to dist folder and release
+on:
+  push: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: install nodejs
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: install dependencies
+      run: npm ci
+    
+    - name: build package
+      run: npx gulp vsDebugServerBundle
+    
+    - name: install yq
+      uses: chrisdickinson/setup-yq@latest
+
+    - name: generate version tag
+      id: generate_tag
+      run: echo "RELEASE_TAG=$(cat package.json | yq -p json .version)" >> "$GITHUB_OUPUT"
+
+    - name: create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.generate_tag.RELEASE_TAG }}
+        release_name: Release ${{ step.generate.RELEASE_TAG }}
+        draft: false
+        prerelease: false

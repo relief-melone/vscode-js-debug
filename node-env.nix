@@ -46,6 +46,7 @@ let
     installPackage() {
       local packageName=$1 src=$2
       echo "Installing package..."
+      env
 
       local strippedName
 
@@ -95,6 +96,7 @@ let
   includeDependencies = {dependencies}:
     lib.optionalString (dependencies != []) (
       ''
+        echo includeDependencies
         mkdir -p node_modules
         cd node_modules
       ''

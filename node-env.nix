@@ -5,7 +5,7 @@
 let
   # Workaround to cope with utillinux in Nixpkgs 20.09 and util-linux in Nixpkgs master
   utillinux = if pkgs ? utillinux then pkgs.utillinux else pkgs.util-linux;
-  additionalBuildInputs = with pkgs; [ pkg-config libsecret ];
+  additionalBuildInputs = with pkgs; [ pkg-config libsecret glibc ];
 
   python = if nodejs ? python then nodejs.python else python2;
 

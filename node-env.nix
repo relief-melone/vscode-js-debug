@@ -502,7 +502,8 @@ let
       buildInputs = [ tarWrapper python nodejs ]
         ++ lib.optional (stdenv.isLinux) utillinux
         ++ lib.optional (stdenv.isDarwin) libtool
-        ++ buildInputs;
+        ++ buildInputs
+        ++ additionalBuildInputs;
 
       inherit nodejs;
 

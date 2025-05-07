@@ -6,6 +6,7 @@ let
   # Workaround to cope with utillinux in Nixpkgs 20.09 and util-linux in Nixpkgs master
   utillinux = if pkgs ? utillinux then pkgs.utillinux else pkgs.util-linux;
   additionalBuildInputs = with pkgs; [ pkg-config libsecret glibc clang-tools glib  ];
+  glib = pkgs.glib;
 
   python = if nodejs ? python then nodejs.python else python2;
 
@@ -505,6 +506,10 @@ let
         ++ buildInputs
         ++ additionalBuildInputs;
 
+      NIX_CFLAGS_COMPILE = [ "-I${glib.dev}/include" ];
+      NIX_LDFLAGS = [ "-L${glib.lib}" ];
+      PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
+
       inherit nodejs;
 
       inherit dontStrip; # Stripping may fail a build for some package deployments
@@ -598,6 +603,11 @@ let
           ++ buildInputs
           ++ additionalBuildInputs;
 
+        NIX_CFLAGS_COMPILE = [ "-I${glib.dev}/include" ];
+        NIX_LDFLAGS = [ "-L${glib.lib}" ];
+        PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
+
+
         inherit dontStrip; # Stripping may fail a build for some package deployments
         inherit dontNpmInstall unpackPhase buildPhase;
 
@@ -666,6 +676,12 @@ let
       name = "node-shell-${name}${if version == null then "" else "-${version}"}";
 
       buildInputs = [ python nodejs ] ++ lib.optional (stdenv.isLinux) utillinux ++ buildInputs ++ additionalBuildInputs;
+
+      NIX_CFLAGS_COMPILE = [ "-I${glib.dev}/include" ];
+      NIX_LDFLAGS = [ "-L${glib.lib}" ];
+      PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
+
+
       buildCommand = ''
         mkdir -p $out/bin
         cat > $out/bin/shell <<EOF

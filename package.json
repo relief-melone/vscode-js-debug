@@ -67,7 +67,7 @@
     "glob-stream": "^8.0.0",
     "got": "^11.8.6",
     "inversify": "^6.0.2",
-    "js-debug": "file:result/tarballs/js-debug-1.97.0.tgz",
+    "js-debug": "file:js-debug-1.97.0.tgz",
     "js-xxhash": "^3.0.1",
     "jsonc-parser": "^3.3.1",
     "linkifyjs": "^4.1.3",

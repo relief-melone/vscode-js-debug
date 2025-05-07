@@ -502,8 +502,7 @@ let
       buildInputs = [ tarWrapper python nodejs ]
         ++ lib.optional (stdenv.isLinux) utillinux
         ++ lib.optional (stdenv.isDarwin) libtool
-        ++ buildInputs
-        ++ additionalBuildInputs;
+        ++ buildInputs;
 
       inherit nodejs;
 
@@ -595,8 +594,7 @@ let
         buildInputs = [ tarWrapper python nodejs ]
           ++ lib.optional (stdenv.isLinux) utillinux
           ++ lib.optional (stdenv.isDarwin) libtool
-          ++ buildInputs
-          ++ additionalBuildInputs;
+          ++ buildInputs;
 
         inherit dontStrip; # Stripping may fail a build for some package deployments
         inherit dontNpmInstall unpackPhase buildPhase;

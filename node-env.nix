@@ -505,6 +505,8 @@ let
         ++ buildInputs
         ++ additionalBuildInputs;
 
+      CMAKE_PREFIX_PATH = "${pkgs.lib.makeLibraryPath [ pkgs.libsecret.dev ]}";
+
       inherit nodejs;
 
       inherit dontStrip; # Stripping may fail a build for some package deployments
@@ -516,6 +518,11 @@ let
       passAsFile = [ "compositionScript" "pinpointDependenciesScript" ];
 
       installPhase = ''
+        echo installing dependencies...
+        echo ENVIRONMENT VARIABLES
+        env
+
+
         source ${installPackage}
 
         # Create and enter a root node_modules/ folder

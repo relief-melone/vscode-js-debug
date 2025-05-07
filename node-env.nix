@@ -45,6 +45,7 @@ let
   installPackage = writeShellScript "install-package" ''
     installPackage() {
       local packageName=$1 src=$2
+      echo "Installing package..."
 
       local strippedName
 

@@ -5,7 +5,6 @@
 let
   # Workaround to cope with utillinux in Nixpkgs 20.09 and util-linux in Nixpkgs master
   utillinux = if pkgs ? utillinux then pkgs.utillinux else pkgs.util-linux;
-  additionalBuildInputs = with pkgs; [ pkg-config libsecret  ];
 
   python = if nodejs ? python then nodejs.python else python2;
 
@@ -502,8 +501,7 @@ let
       buildInputs = [ tarWrapper python nodejs ]
         ++ lib.optional (stdenv.isLinux) utillinux
         ++ lib.optional (stdenv.isDarwin) libtool
-        ++ buildInputs
-        ++ additionalBuildInputs;
+        ++ buildInputs;
 
       inherit nodejs;
 

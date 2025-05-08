@@ -11,8 +11,8 @@ let
     glibc 
     clang-tools 
     libpqxx
+    gcc
   ];
-  glib = pkgs.glib;
 
   python = if nodejs ? python then nodejs.python else python2;
 
@@ -515,6 +515,7 @@ let
 #      NIX_CFLAGS_COMPILE = "$(pkg-config --cflags gtk+-3.0) $NIX_CFLAGS_COMPILE";
 #      NIX_LDFLAGS = [ "-L${glib}" ];
 #      PKG_CONFIG_PATH = "${glib}/pkgconfig:$PKG_CONFIG_PATH";
+      C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
 
       inherit nodejs;
 
@@ -612,6 +613,8 @@ let
         #NIX_CFLAGS_COMPILE = [ "-I${glib.dev}/include" ];
         #NIX_LDFLAGS = [ "-L${glib.lib}" ];
         #PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
+        C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
+
 
 
         inherit dontStrip; # Stripping may fail a build for some package deployments
@@ -686,6 +689,8 @@ let
       #NIX_CFLAGS_COMPILE = [ "-I${glib.dev}/include" ];
       #NIX_LDFLAGS = [ "-L${glib.lib}" ];
       #PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
+      C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
+
 
 
       buildCommand = ''

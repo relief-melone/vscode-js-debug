@@ -516,6 +516,7 @@ let
 #      NIX_LDFLAGS = [ "-L${glib}" ];
 #      PKG_CONFIG_PATH = "${glib}/pkgconfig:$PKG_CONFIG_PATH";
       C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
+      PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
 
       inherit nodejs;
 
@@ -615,6 +616,8 @@ let
         #NIX_LDFLAGS = [ "-L${glib.lib}" ];
         #PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
         C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
+        PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+
 
 
 
@@ -692,6 +695,8 @@ let
       #NIX_LDFLAGS = [ "-L${glib.lib}" ];
       #PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
       C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
+      PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+
 
 
 

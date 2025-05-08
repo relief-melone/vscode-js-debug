@@ -518,6 +518,8 @@ let
       C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
       PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
       PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD="1";
+
 
 
       inherit nodejs;
@@ -620,6 +622,8 @@ let
         C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
         PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
         PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD="1";
+
 
 
 
@@ -701,6 +705,7 @@ let
       C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
       PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
       PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD="1";
 
 
 

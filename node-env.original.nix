@@ -5,12 +5,6 @@
 let
   # Workaround to cope with utillinux in Nixpkgs 20.09 and util-linux in Nixpkgs master
   utillinux = if pkgs ? utillinux then pkgs.utillinux else pkgs.util-linux;
-  additionalBuildInputs = with pkgs; [ 
-    pkg-config 
-    libsecret 
-    gcc
-    node-gyp
-  ];
 
   python = if nodejs ? python then nodejs.python else python2;
 
@@ -504,17 +498,10 @@ let
     in
     stdenv.mkDerivation ({
       name = "${name}${if version == null then "" else "-${version}"}";
-      nativeBuildInputs = [] ++ additionalBuildInputs;
       buildInputs = [ tarWrapper python nodejs ]
         ++ lib.optional (stdenv.isLinux) utillinux
         ++ lib.optional (stdenv.isDarwin) libtool
-        ++ buildInputs
-        ++ additionalBuildInputs;
-
-#      NIX_CFLAGS_COMPILE = "$(pkg-config --cflags gtk+-3.0) $NIX_CFLAGS_COMPILE";
-#      NIX_LDFLAGS = [ "-L${glib}" ];
-#      PKG_CONFIG_PATH = "${glib}/pkgconfig:$PKG_CONFIG_PATH";
-      C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
+        ++ buildInputs;
 
       inherit nodejs;
 
@@ -602,20 +589,11 @@ let
     in
       stdenv.mkDerivation ({
         name = "node-dependencies-${name}${if version == null then "" else "-${version}"}";
-        
-        nativeBuildInputs = [] ++ additionalBuildInputs;
+
         buildInputs = [ tarWrapper python nodejs ]
           ++ lib.optional (stdenv.isLinux) utillinux
           ++ lib.optional (stdenv.isDarwin) libtool
-          ++ buildInputs
-          ++ additionalBuildInputs;
-
-        #NIX_CFLAGS_COMPILE = [ "-I${glib.dev}/include" ];
-        #NIX_LDFLAGS = [ "-L${glib.lib}" ];
-        #PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
-        C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
-
-
+          ++ buildInputs;
 
         inherit dontStrip; # Stripping may fail a build for some package deployments
         inherit dontNpmInstall unpackPhase buildPhase;
@@ -683,17 +661,8 @@ let
     in
     stdenv.mkDerivation ({
       name = "node-shell-${name}${if version == null then "" else "-${version}"}";
-      
-      nativeBuildInputs = [] ++ additionalBuildInputs;
-      buildInputs = [ python nodejs ] ++ lib.optional (stdenv.isLinux) utillinux ++ buildInputs ++ additionalBuildInputs;
 
-      #NIX_CFLAGS_COMPILE = [ "-I${glib.dev}/include" ];
-      #NIX_LDFLAGS = [ "-L${glib.lib}" ];
-      #PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
-      C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
-
-
-
+      buildInputs = [ python nodejs ] ++ lib.optional (stdenv.isLinux) utillinux ++ buildInputs;
       buildCommand = ''
         mkdir -p $out/bin
         cat > $out/bin/shell <<EOF

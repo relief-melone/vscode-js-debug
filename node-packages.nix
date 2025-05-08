@@ -175,6 +175,15 @@ let
         sha512 = "IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==";
       };
     };
+    "@dprint/linux-x64-glibc-0.49.1" = {
+      name = "_at_dprint_slash_linux-x64-glibc";
+      packageName = "@dprint/linux-x64-glibc";
+      version = "0.49.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@dprint/linux-x64-glibc/-/linux-x64-glibc-0.49.1.tgz";
+        sha512 = "MjFE894mIQXOKBencuakKyzAI4KcDe/p0Y9lRp9YSw/FneR4QWH9VBH90h8fRxcIlWMArjFFJJAtsBnn5qgxeg==";
+      };
+    };
     "@eslint-community/eslint-utils-4.7.0" = {
       name = "_at_eslint-community_slash_eslint-utils";
       packageName = "@eslint-community/eslint-utils";
@@ -823,13 +832,13 @@ let
         sha512 = "GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==";
       };
     };
-    "@types/node-20.17.44" = {
+    "@types/node-20.17.45" = {
       name = "_at_types_slash_node";
       packageName = "@types/node";
-      version = "20.17.44";
+      version = "20.17.45";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@types/node/-/node-20.17.44.tgz";
-        sha512 = "50sE4Ibb4BgUMxHrcJQSAU0Fu7fLcTdwcXwRzEF7wnVMWvImFLg2Rxc7SW0vpvaJm4wvhoWEZaQiPpBpocZiUA==";
+        url = "https://registry.npmjs.org/@types/node/-/node-20.17.45.tgz";
+        sha512 = "vO9+E1smq+149wsmmLdM8SKVW7gRzLjfo0mU7kiykhV6rL+GEUhUmW7VywJNSxJHQzt9QBIHEo+3SG4MrFTqbA==";
       };
     };
     "@types/picomatch-4.0.0" = {
@@ -2983,13 +2992,13 @@ let
         sha512 = "WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==";
       };
     };
-    "electron-to-chromium-1.5.150" = {
+    "electron-to-chromium-1.5.151" = {
       name = "electron-to-chromium";
       packageName = "electron-to-chromium";
-      version = "1.5.150";
+      version = "1.5.151";
       src = fetchurl {
-        url = "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.150.tgz";
-        sha512 = "rOOkP2ZUMx1yL4fCxXQKDHQ8ZXwisb2OycOQVKHgvB3ZI4CvehOd4y2tfnnLDieJ3Zs1RL1Dlp3cMkyIn7nnXA==";
+        url = "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.151.tgz";
+        sha512 = "Rl6uugut2l9sLojjS4H4SAr3A4IgACMLgpuEMPYCVcKydzfyPrn5absNRju38IhQOf/NwjJY8OGWjlteqYeBCA==";
       };
     };
     "emoji-regex-10.4.0" = {
@@ -5566,13 +5575,13 @@ let
         sha512 = "ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==";
       };
     };
-    "linkifyjs-4.3.0" = {
+    "linkifyjs-4.3.1" = {
       name = "linkifyjs";
       packageName = "linkifyjs";
-      version = "4.3.0";
+      version = "4.3.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/linkifyjs/-/linkifyjs-4.3.0.tgz";
-        sha512 = "kaSIzMpYb3ihAbMm48CUNpSKPwKw8vPVUItiIvPSrISqHYzvQm/6LhaWYkZsiUHNMml1dw+yPMM1/qzigJNg5g==";
+        url = "https://registry.npmjs.org/linkifyjs/-/linkifyjs-4.3.1.tgz";
+        sha512 = "DRSlB9DKVW04c4SUdGvKK5FR6be45lTU9M76JnngqPeeGDqPwYc0zdUErtsNVMtxPXgUWV4HbXbnC4sNyBxkYg==";
       };
     };
     "load-json-file-1.1.0" = {
@@ -9667,6 +9676,7 @@ let
           sources."@jridgewell/trace-mapping-0.3.9"
         ];
       })
+      sources."@dprint/linux-x64-glibc-0.49.1"
       sources."@eslint-community/eslint-utils-4.7.0"
       sources."@eslint-community/regexpp-4.12.1"
       (sources."@eslint/eslintrc-2.1.4" // {
@@ -9770,7 +9780,7 @@ let
       sources."@types/mkdirp-1.0.2"
       sources."@types/mocha-10.0.10"
       sources."@types/ms-2.1.0"
-      sources."@types/node-20.17.44"
+      sources."@types/node-20.17.45"
       sources."@types/picomatch-4.0.0"
       sources."@types/qs-6.9.18"
       sources."@types/range-parser-1.2.7"
@@ -10060,7 +10070,7 @@ let
       sources."each-props-1.3.2"
       sources."eastasianwidth-0.2.0"
       sources."ee-first-1.1.1"
-      sources."electron-to-chromium-1.5.150"
+      sources."electron-to-chromium-1.5.151"
       sources."emoji-regex-10.4.0"
       sources."encodeurl-2.0.0"
       (sources."encoding-sniffer-0.2.0" // {
@@ -10461,7 +10471,7 @@ let
         ];
       })
       sources."linkify-it-3.0.3"
-      sources."linkifyjs-4.3.0"
+      sources."linkifyjs-4.3.1"
       sources."load-json-file-4.0.0"
       sources."locate-path-2.0.0"
       sources."lodash-4.17.21"

@@ -517,6 +517,8 @@ let
 #      PKG_CONFIG_PATH = "${glib}/pkgconfig:$PKG_CONFIG_PATH";
       C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
       PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+      PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+
 
       inherit nodejs;
 
@@ -617,6 +619,8 @@ let
         #PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
         C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
         PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+        PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+
 
 
 
@@ -696,6 +700,7 @@ let
       #PKG_CONFIG_PATH = "${glib.lib}/pkgconfig:$PKG_CONFIG_PATH";
       C_INCLUDE_PATH = "${pkgs.expat.dev}/include";
       PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+      PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
 
 
 

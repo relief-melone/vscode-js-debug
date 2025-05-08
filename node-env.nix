@@ -8,10 +8,8 @@ let
   additionalBuildInputs = with pkgs; [ 
     pkg-config 
     libsecret 
-    glibc 
-    clang-tools 
-    libpqxx
     gcc
+    node-gyp
   ];
 
   python = if nodejs ? python then nodejs.python else python2;

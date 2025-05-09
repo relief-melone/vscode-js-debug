@@ -428,7 +428,7 @@ gulp.task(
 
 gulp.task(
   'vsDebugServerBundleNol10n',
-  gulp.series('clean', 'compile', 'vsDebugServerBundle:webpack-
+  gulp.series('clean', 'compile', 'vsDebugServerBundle:webpack-bundle'),
 )
 
 /** Publishes the build extension to the marketplace */

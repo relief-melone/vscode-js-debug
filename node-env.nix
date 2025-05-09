@@ -10,7 +10,6 @@ let
     libsecret 
     gcc
     node-gyp
-    playwright
   ];
 
   python = if nodejs ? python then nodejs.python else python2;

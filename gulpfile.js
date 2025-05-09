@@ -426,6 +426,11 @@ gulp.task(
   gulp.series('clean', 'compile', 'vsDebugServerBundle:webpack-bundle', 'l10n:bundle-download'),
 );
 
+gulp.task(
+  'vsDebugServerBundleNol10n',
+  gulp.series('clean', 'compile', 'vsDebugServerBundle:webpack-
+)
+
 /** Publishes the build extension to the marketplace */
 gulp.task('publish:vsce', () =>
   vsce.publish({
